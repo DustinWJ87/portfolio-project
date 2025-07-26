@@ -1,0 +1,13 @@
+/* Main SCSS file */
+
+@use 'base/resets';
+@use 'utils/variables';
+@use 'utils/mixins';
+@use 'utils/animations';
+@use 'utils/themes';
+@use 'blocks/header';
+@use 'blocks/bio';
+@use 'blocks/latest-projects';
+@use 'blocks/skills';
+@use 'blocks/footer';
+@use 'blocks/buttons';

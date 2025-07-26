@@ -1,0 +1,90 @@
+/* Biography styles for SCSS */
+
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+@use "../blocks/buttons" as *;
+
+.bio {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: $font-family;
+
+  &__header {
+    @include background-banner;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    @include Shadow-Stroke;
+  }
+
+  &__content {
+    @include flex-center(column, 20px);
+    margin-top: 20px;
+  }
+
+  &__image {
+    @include profile-image;
+    position: relative;
+    background-image: url("src/img/pfp.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("src/img/pfp_hover.jpg");
+      background-size: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  &__info {
+    max-width: 600px;
+  }
+
+  &__name {
+    @include section-title(2rem, 10px);
+  }
+
+  &__description {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    @extend %button-base;
+  }
+
+  @media (min-width: 700px) {
+    &__content {
+      @include flex-center(row, 40px);
+    }
+  }
+
+  @keyframes rollInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-200px) rotate(-360deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotate(0);
+    }
+  }
+}

@@ -1,0 +1,67 @@
+/* Resets for the portfolio site */
+
+@use "../utils/variables" as *;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+main {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior:smooth;
+}
+
+#particles,
+#particles2,
+#particles3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; // Ensures particles don't interfere with other elements
+}
+
+
+h1,
+h2,
+h3,
+p { 
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+hr {
+    border: none;
+    border-top: 4px solid var(--background-color);
+    margin: 0;           // No extra white space
+    width: 100%;          // Full width
+    align-self: center;  // If inside a flex container
+}
+
+:focus {
+    outline: 3px solid var(--primary-color);
+    transform: scale(1.2);
+}
+
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

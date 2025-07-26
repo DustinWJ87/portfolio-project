@@ -1,0 +1,33 @@
+// Theme variables for SCSS
+
+:root {
+    --primary-color: #05ff05; // Primary color for the site
+    --secondary-color: #570051; // Secondary color for the site
+    --secondary-color-hover: darken( #570051, 10%); // Darker shade for hover effects
+    --background-color: #1a0b1f; // Background color for the site
+    --text-color: #f6f1ff; // Text color for the site
+    --card-border: #570051; // Border color for cards
+    --dark-text-color: #000; // Dark text color for contrast
+    --light-text-color: #fff; // Light text color for readability
+    --button-text-color: #000; // Text color for buttons
+    --shadow-stroke-text-color: #05ff05; // Text color for shadow stroke effects
+    --card-background-color: #570051; // Background color for cards on hover
+    --particle-color: #fff; // Color for particle animations
+    --hamburger-text-color: #000; // Text color for hamburger menu
+}
+
+body.light-mode{
+    --primary-color: #570051; // Primary color for light mode
+    --secondary-color: #000; // Secondary color for light mode
+    --secondary-color-hover: darken( #05ff05, 10%); // Darker shade for hover effects in light mode
+    --background-color: #f6f1ff; // Background color for light mode
+    --text-color: #1a0b1f; // Text color for light mode
+    --card-border: #000; // Border color for cards in light mode
+    --light-text-color: #000; // Light text color for readability in light mode
+    --dark-text-color: #570051; // Dark text color for contrast in light mode
+    --button-text-color: #fff; // Text color for buttons in light mode
+    --shadow-stroke-text-color: #fff; // Text color for shadow stroke effects in light mode
+    --card-background-color: #05ff05; // Background color for cards on hover
+    --particle-color: #000; // Color for particle animations
+    --hamburger-text-color: #fff; // Text color for hamburger menu in light mode
+}

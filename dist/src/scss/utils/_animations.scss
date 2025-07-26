@@ -1,0 +1,82 @@
+// Animation keyframes for SCSS 
+
+@use '../utils/variables' as *;
+
+// Inspired by https://codepen.io/sarazond/pen/LYGbwj?editors=1100
+// n is the number of particles required
+@function multiple-box-shadow ($n) {
+  $value: '#{random(4000)}px #{random(4000)}px var(--particle-color)';
+
+  @for $i from 2 through $n {
+    $value: '#{$value}, #{random(4000)}px #{random(4000)}px var(--particle-color)';
+  }
+
+  @return unquote($value)
+}
+
+$shadows-small: multiple-box-shadow(500);
+$shadows-medium: multiple-box-shadow(300);
+$shadows-large: multiple-box-shadow(100);
+
+#particles {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+    animation: animateParticles 40s linear infinite;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 2000px;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+        box-shadow: $shadows-small;
+    }
+}
+
+#particles2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+    animation: animateParticles 80s linear infinite;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 2000px;
+        width: 2px;
+        height: 2px;
+        background: transparent;
+        box-shadow: $shadows-medium;
+    }
+}
+
+#particles3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-large;
+    animation: animateParticles 120s linear infinite;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 2000px;
+        width: 3px;
+        height: 3px;
+        background: transparent;
+        box-shadow: $shadows-large;
+    }
+}
+
+@keyframes animateParticles {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-2000px);
+    }
+}

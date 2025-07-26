@@ -1,0 +1,113 @@
+/* Header styles for SCSS */
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.header {
+  @include background_banner;
+  color: var(--text-color);
+  padding: 20px;
+  font-family: $font-family;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: $z-index;
+
+  &--shrink {
+    padding: 5px;
+    transition: padding 0.3s ease-in-out;
+  }
+
+  &__theme-toggle {
+    position: relative;
+    background: none;
+    border: none;
+    margin-left: 100px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+  }
+
+  #myLogo {
+    width: 50px;
+    height: auto;
+    margin-right: 100px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-list {
+      @include list-style-none(flex, 1rem);
+    }
+
+    .icon {
+      display:none;
+    }
+
+    &-link {
+      color: $light-text-color;
+      text-decoration: none;
+      font-size: 1.2rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:active {
+        color: $dark-text-color;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    &__nav {
+      justify-content: flex-end;
+    }
+
+    &__nav-list {
+      display: none;
+    }
+
+    &__nav-link {
+      color: var(--hamburger-text-color);
+    }
+
+    #myLogo { 
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+      height: auto;
+    }
+
+    .icon {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: $primary-color;
+      margin-right: 20px;
+    }
+
+    &__nav.responsive {
+      .header__nav-list {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding :10px 0;
+      }
+    }
+  }
+}

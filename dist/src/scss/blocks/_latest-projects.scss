@@ -1,0 +1,74 @@
+/* Latest Projects styles for SCSS */
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../blocks/buttons' as *;
+
+.latest-projects {
+    background-color: var(--background-color);
+    font-family: $font-family;
+    margin: 2rem 0;
+    text-align: center;
+
+  &__title {
+    @include section-title
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__item {
+    @include card;
+    opacity: 0;
+    transform: translateY(50px);
+    position:relative;
+    padding: 1rem;
+    width: 300px;
+    text-align: center;
+    @include smooth-transition;
+    
+    &-title {
+      font-size: 1.75rem;
+      margin-bottom: 10px;
+      @include Shadow-Stroke;
+    }
+
+    &-image {
+      @include project-image;
+    }
+
+    &-description {
+      font-size: 1rem;
+      font-variant: small-caps;
+      color: var(--text-color);
+    }
+
+    // Staggered Animation delays
+    &:nth-child(1) {transition-delay: 0.2s;}
+    &:nth-child(2) {transition-delay: 0.4s;}
+    &:nth-child(3) {transition-delay: 0.6s;}
+  }
+
+  &__button {
+    @extend %button-base;
+  }
+}
+
+// Hover effect for items
+.latest-projects.loaded .latest-projects__item:hover {
+  @include card-hover;
+
+  .latest-projects__item-description {
+    text-decoration: underline;
+  }
+}
+
+// Fade-in effect when loaded
+.latest-projects.loaded .latest-projects__item {
+  opacity: 1;
+  transform: translateY(0);
+}

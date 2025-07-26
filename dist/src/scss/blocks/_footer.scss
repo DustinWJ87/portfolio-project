@@ -1,0 +1,18 @@
+/* Footer styles for SCSS */
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.footer {
+  @include background-banner;
+  color: var(--light-text-color);
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  z-index: $z-index;
+
+  &__text {
+    margin: 0;
+  }
+}

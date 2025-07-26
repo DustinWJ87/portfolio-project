@@ -1,0 +1,36 @@
+/* Skills styles for SCSS */
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.skills {
+  background-color: var(--background-color);
+  font-family: $font-family;
+  padding: 2rem 0;
+  margin: 1rem 1rem;
+  text-align: center;
+ 
+  &__title {
+    @include section-title;
+  }
+
+  &__list {
+    @include list-style-none(grid, 1rem,0 auto);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;
+    max-width: 900px;
+  }
+
+  &__item {
+    @include card;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--text-color);
+
+    &:hover {
+      @include card-hover;
+    }
+  }
+}
